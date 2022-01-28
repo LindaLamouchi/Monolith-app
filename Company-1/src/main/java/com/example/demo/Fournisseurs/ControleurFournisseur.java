@@ -1,4 +1,4 @@
-package com.example.demo.Employes;
+package com.example.demo.Fournisseurs;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,29 +13,29 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/employes")
-public class Controleur {
+@RequestMapping("/fournisseurs")
+public class ControleurFournisseur {
 
 	@Autowired
-	private InterfaceEmployes interfaceEmployes;
+	private InterfaceFournisseurs interfaceFournisseurs;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public List<Employe> getAll(){
-		return interfaceEmployes.findAll();
+	public List<Fournisseur> getAll(){
+		return interfaceFournisseurs.findAll();
 	}
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)
-	public Optional<Employe> getOne(@PathVariable Long id){
-		 return interfaceEmployes.findById(id) ;
+	public Optional<Fournisseur> getOne(@PathVariable Long id){
+		 return interfaceFournisseurs.findById(id) ;
 	}
 
 	@RequestMapping(value="/",method=RequestMethod.POST)
-	public Employe save(@RequestBody Employe c){
-		 return interfaceEmployes.save(c) ;
+	public Fournisseur save(@RequestBody Fournisseur c){
+		 return interfaceFournisseurs.save(c) ;
 	}
 
 	@RequestMapping(value="/{id}",method=RequestMethod.DELETE)
 	public boolean delete(@PathVariable Long id){
-		interfaceEmployes.deleteById(id);
+		interfaceFournisseurs.deleteById(id);
 		 return true; 
 	}
 	
